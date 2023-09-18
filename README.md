@@ -1,31 +1,31 @@
-# react-native-video
+# ima-player
 
-> :warning: **Version 6 Alpha**: The following documentation may refer to features only available through the v6.0.0 alpha releases, [please see version 5.2.x](https://github.com/react-native-video/react-native-video/blob/v5.2.0/README.md) for the current documentation!
+React native google ad in video
 
-## A `<Video>` component for react-native.
-Version 6.x recommends react-native >= 0.68.2. 
-<br>For older versions of react-native, [please use version 5.x](https://github.com/react-native-video/react-native-video/tree/v5.2.0).
+## Installation
 
-### Version 6.0.0 breaking changes
-
-Version 6.0.0 is introducing dozens of breaking changes, mostly through updated dependecies and significant refactoring. While the API remains compatible, the significant internal changes require full testing with your app to ensure all functionality remains operational. Please view the [Changelog](CHANGELOG.md) for specific breaking changes.
-
-### Installing Version 6.0.0 Alphas
-Whilst we finalise version 6.0.0 you can install the latest alpha from npm
-Using npm:
-```
-npm install --save react-native-video@alpha
-```
-using yarn:
-```
-yarn add react-native-video@alpha
+```sh
+npm install ima-player
 ```
 
-## Useful resources
-- [Documentation](API.md)
-- [Changelog](CHANGELOG.md)
-- [Contribution guide](CONTRIBUTING.md)
-- [Usefull Side Project](./docs/PROJECTS.md)
-- [Advanced debugging](./docs/DEBUGGING.md)
+## Usage
 
-**react-native-video** was originally created by [Brent Vatne](https://github.com/brentvatne)
+```js
+import { Video } from 'ima-player';
+const adTagUrl = "https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator="
+
+      <Video
+        adTagUrl={adTagUrl}
+        source={{
+          uri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+          type: 'mp4',
+        }}
+        style={{ flex: 1 }}
+      />
+
+```
+
+## License
+
+MIT
+---
