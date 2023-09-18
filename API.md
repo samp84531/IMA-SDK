@@ -21,16 +21,16 @@
 Using npm:
 
 ```shell
-npm install --save react-native-video
+npm install --save ima-player
 ```
 
 or using yarn:
 
 ```shell
-yarn add react-native-video
+yarn add ima-player
 ```
 
-Then follow the instructions for your platform to link react-native-video into your project:
+Then follow the instructions for your platform to link ima-player into your project:
 
 ### iOS installation
 <details>
@@ -44,7 +44,7 @@ Run `npx pod-install`. Linking is not required in React Native 0.60 and above.
 
 **React Native 0.59 and below**
 
-Run `react-native link react-native-video` to link the react-native-video library.
+Run `react-native link ima-player` to link the ima-player library.
 
 #### Enable Static Linking for dependencies in your ios project Podfile
 
@@ -62,7 +62,7 @@ Video only:
 
 ```diff
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
-+  `pod 'react-native-video', :path => '../node_modules/react-native-video/react-native-video.podspec'`
++  `pod 'ima-player', :path => '../node_modules/ima-player/ima-player.podspec'`
 end
 ```
 
@@ -70,7 +70,7 @@ Video with caching ([more info](docs/caching.md)):
 
 ```diff
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
-+  `pod 'react-native-video/VideoCaching', :path => '../node_modules/react-native-video/react-native-video.podspec'`
++  `pod 'ima-player/VideoCaching', :path => '../node_modules/ima-player/ima-player.podspec'`
 end
 ```
 
@@ -91,7 +91,7 @@ $RNVideoUseGoogleIMA=true
   <details>
   <summary>tvOS details</summary>
 
-`react-native link react-native-video` doesn’t work properly with the tvOS target so we need to add the library manually.
+`react-native link ima-player` doesn’t work properly with the tvOS target so we need to add the library manually.
 
 First select your project in Xcode.
 
@@ -115,7 +115,7 @@ Select RCTVideo-tvOS
   <summary>Android details</summary>
  
 Linking is not required in React Native 0.60 and above.
-If your project is using React Native < 0.60, run `react-native link react-native-video` to link the react-native-video library.
+If your project is using React Native < 0.60, run `react-native link ima-player` to link the ima-player library.
 
 Or if you have trouble, make the following additions to the given files manually:
 
@@ -124,8 +124,8 @@ Or if you have trouble, make the following additions to the given files manually
 Add player source in build configuration
 
 ```gradle
-include ':react-native-video'
-project(':react-native-video').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-video/android')
+include ':ima-player'
+project(':ima-player').projectDir = new File(rootProject.projectDir, '../node_modules/ima-player/android')
 ```
 
 #### **android/app/build.gradle**
@@ -135,7 +135,7 @@ From version >= 5.0.0, you have to apply these changes:
 ```diff
 dependencies {
    ...
-    compile project(':react-native-video')
+    compile project(':ima-player')
 +   implementation "androidx.appcompat:appcompat:1.0.0"
 -   implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
 
@@ -200,7 +200,7 @@ buildscript {
 
 **React Native Windows 0.63 and above**
 
-Autolinking should automatically add react-native-video to your app.
+Autolinking should automatically add ima-player to your app.
 
 #### Manual Linking
 
@@ -214,7 +214,7 @@ Add the _ReactNativeVideoCPP_ project to your solution (eg. `windows\myapp.sln`)
 
 1. Open your solution in Visual Studio 2019
 2. Right-click Solution icon in Solution Explorer > Add > Existing Project...
-3. Select `node_modules\react-native-video\windows\ReactNativeVideoCPP\ReactNativeVideoCPP.vcxproj`
+3. Select `node_modules\ima-player\windows\ReactNativeVideoCPP\ReactNativeVideoCPP.vcxproj`
 
 ##### **windows\myapp\myapp.vcxproj**
 
@@ -262,7 +262,7 @@ yarn xbasic windows
 ```javascript
 // Load the module
 
-import Video from 'react-native-video';
+import Video from 'ima-player';
 
 // Within your render function, assuming you have a file called
 // "background.mp4" in your project. You can include multiple videos
@@ -490,7 +490,7 @@ Determines whether to show player controls.
 
 Note on iOS, controls are always shown when in fullscreen mode.
 Note on Android, native controls are available by default.
-If needed, you can also add your controls or use a package like [react-native-video-controls](https://github.com/itsnubix/react-native-video-controls) or [react-native-media-console](https://github.com/criszz77/react-native-media-console), see [Usefull Side Project](./docs/PROJECTS.md).
+If needed, you can also add your controls or use a package like [ima-player-controls](https://github.com/itsnubix/ima-player-controls) or [react-native-media-console](https://github.com/criszz77/react-native-media-console), see [Usefull Side Project](./docs/PROJECTS.md).
 
 ### contentStartTime
 The start time in ms for SSAI content. This determines at what time to load the video info like resolutions. Use this only when you have SSAI stream where ads resolution is not the same as content resolution.
@@ -1028,7 +1028,7 @@ Note: Due to iOS limitations, sidecar text tracks are not compatible with Airpla
 
 Example:
 ```
-import { TextTrackType }, Video from 'react-native-video';
+import { TextTrackType }, Video from 'ima-player';
 
 textTracks={[
   {
@@ -1650,7 +1650,7 @@ Platforms: iOS
 A module embed in ReactNativeVideo allow to query device supported feature.
 To use it include the module as following:
 ```javascript
-import { VideoDecoderProperties } from '@ifs/react-native-video-enhanced'
+import { VideoDecoderProperties } from '@ifs/ima-player-enhanced'
 ```
 
 Platforms: Android
@@ -1716,7 +1716,7 @@ For more detailed info check this [article](https://cocoacasts.com/how-to-add-ap
 
 ### Audio Mixing
 
-At some point in the future, react-native-video will include an Audio Manager for configuring how videos mix with other apps playing sounds on the device.
+At some point in the future, ima-player will include an Audio Manager for configuring how videos mix with other apps playing sounds on the device.
 
 On iOS, if you would like to allow other apps to play music over your video component, make the following change:
 
@@ -1754,7 +1754,7 @@ zip -r -n .mp4 *.mp4 player.video.example.com
 
 ### Load files with the RN Asset System
 
-The asset system [introduced in RN `0.14`](http://www.reactnative.com/react-native-v0-14-0-released/) allows loading image resources shared across iOS and Android without touching native code. As of RN `0.31` [the same is true](https://github.com/facebook/react-native/commit/91ff6868a554c4930fd5fda6ba8044dbd56c8374) of mp4 video assets for Android. As of [RN `0.33`](https://github.com/facebook/react-native/releases/tag/v0.33.0) iOS is also supported. Requires `react-native-video@0.9.0`.
+The asset system [introduced in RN `0.14`](http://www.reactnative.com/react-native-v0-14-0-released/) allows loading image resources shared across iOS and Android without touching native code. As of RN `0.31` [the same is true](https://github.com/facebook/react-native/commit/91ff6868a554c4930fd5fda6ba8044dbd56c8374) of mp4 video assets for Android. As of [RN `0.33`](https://github.com/facebook/react-native/releases/tag/v0.33.0) iOS is also supported. Requires `ima-player@0.9.0`.
 
 ```javascript
 <Video
@@ -1764,16 +1764,16 @@ The asset system [introduced in RN `0.14`](http://www.reactnative.com/react-nati
 
 ### Play in background on iOS
 
-To enable audio to play in background on iOS the audio session needs to be set to `AVAudioSessionCategoryPlayback`. See [Apple documentation][3] for additional details. (NOTE: there is now a ticket to [expose this as a prop]( https://github.com/react-native-community/react-native-video/issues/310) )
+To enable audio to play in background on iOS the audio session needs to be set to `AVAudioSessionCategoryPlayback`. See [Apple documentation][3] for additional details. (NOTE: there is now a ticket to [expose this as a prop]( https://github.com/react-native-community/ima-player/issues/310) )
 
 ## Examples
 
-- See an [Example integration][1] in `react-native-login` *note that this example uses an older version of this library, before we used `export default` -- if you use `require` you will need to do `require('react-native-video').default` as per instructions above.*
+- See an [Example integration][1] in `react-native-login` *note that this example uses an older version of this library, before we used `export default` -- if you use `require` you will need to do `require('ima-player').default` as per instructions above.*
 - Try the included [VideoPlayer example][2] yourself:
 
    ```sh
-   git clone git@github.com:react-native-community/react-native-video.git
-   cd react-native-video/example
+   git clone git@github.com:react-native-community/ima-player.git
+   cd ima-player/example
    npm install
    open ios/VideoPlayer.xcodeproj
 
@@ -1811,7 +1811,7 @@ From version >= 5.0.0, you have to apply this changes:
 ```diff
 dependencies {
    ...
-    compile project(':react-native-video')
+    compile project(':ima-player')
 +   implementation "androidx.appcompat:appcompat:1.0.0"
 -   implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
 
@@ -1868,7 +1868,7 @@ Note, Windows does not have a concept of an app going into the background, so th
 #### Use Android target SDK 27 by default
 Version 3.0 updates the Android build tools and SDK to version 27. React Native is in the process of [switchting over](https://github.com/facebook/react-native/issues/18095#issuecomment-395596130) to SDK 27 in preparation for Google's requirement that new Android apps [use SDK 26](https://android-developers.googleblog.com/2017/12/improving-app-security-and-performance.html) by August 2018.
 
-You will either need to install the version 27 SDK and version 27.0.3 buildtools or modify your build.gradle file to configure react-native-video to use the same build settings as the rest of your app as described below.
+You will either need to install the version 27 SDK and version 27.0.3 buildtools or modify your build.gradle file to configure ima-player to use the same build settings as the rest of your app as described below.
 
 ##### Using app build settings
 You will need to create a `project.ext` section in the top-level build.gradle file (not app/build.gradle). Fill in the values from the example below using the values found in your app/build.gradle file.
